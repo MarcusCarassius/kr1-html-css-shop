@@ -426,16 +426,6 @@ a:focus-visible {
 .form-field__control[aria-invalid="true"] {
   border-color: var(--color-danger);
 }
-
-.form-field--checkbox {
-  /* модификатор для чекбокс-поля, если понадобится */
-}
-
-
-/* ===============================
-   16. Блок: form-actions
-   =============================== */
-
 .form-actions {
   display: flex;
   gap: var(--space-sm);
