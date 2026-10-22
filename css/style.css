@@ -16,6 +16,11 @@
   --color-success: #168a2f;
   --color-success-bg: #eefaf0;
   --color-white: #ffffff;
+  --color-black: #000000;  
+  --color-tyrian: #B200FF;
+  --color-gold: #FFBA00;
+  --color-darkgold: #A07300;
+
 
   /* Отступы */
   --space-xs: 4px;
@@ -180,6 +185,38 @@ a:focus-visible {
   border-radius: var(--radius-lg);
 }
 
+/* ===============================
+   12. Блок: button
+   =============================== */
+
+.button {
+  display: inline-block;
+  padding: var(--space-sm) var(--space-md);
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  text-decoration: none;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  outline: 3px solid var(--color-border);
+  transition: transform .2s, box-shadow .2s;
+}
+
+.button:hover {
+  color: var(--color-white);
+  outline: 3px solid var(--color-white);
+  box-shadow: 0 0 35px rgba(255, 255, 255, 1);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
 
 /* ===============================
    7. Блок: product-grid
@@ -213,13 +250,21 @@ a:focus-visible {
   outline: 3px solid var(--color-white);
   box-shadow: 0 0 35px rgba(255, 255, 255, 1);
 }
+.product-card__pricetag {
+  margin-top:4px;
+  margin-bottom:4px;
+}
 
 .product-card__title {
   margin-top: 0;
+  margin-bottom: 0;
 }
 
 .product-card__image {
+  max-width: 100%;
+  height: auto;
   outline: 3px solid var(--color-border);
+  border-radius: var(--radius-md);
   transition: box-shadow .2s;
 }
 
@@ -233,6 +278,128 @@ a:focus-visible {
   align-self: flex-start;
 }
 
+.product-card__body {
+  margin-top:4px;
+  margin-bottom:0px;
+}
+
+.product-card__info {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 8px;
+}
+
+/* ===============================
+   Модификаторы элементов
+   =============================== */
+
+.product-card--discount {
+  color: var(--color-black);
+  background-color: var(--color-white);
+  outline-color: var(--color-black);
+}
+
+.product-card--discount:hover {
+  color: var(--color-black);
+  outline-color: var(--color-black);
+  box-shadow: 0 0 35px rgba(0, 0, 0, 1);
+}
+  
+.product-card__image--discount {
+  outline-color: var(--color-black);
+}
+
+.product-card__image--discount:hover {
+  outline-color: var(--color-black);
+  box-shadow: 0 0 35px rgba(0, 0, 0, 1);
+}
+
+.product-card__button--discount {
+  color: var(--color-black);
+  background-color: var(--color-white);
+  outline: 3px solid var(--color-black);
+}
+
+.product-card__button--discount:hover {
+  box-shadow: 0 0 35px rgba(0, 0, 0, 1);
+  outline: 3px solid var(--color-black);
+  color:var(--color-black);
+}
+
+.product-card--featured {
+  color: var(--color-darkgold);
+  background-color: var(--color-gold);
+  outline-color: var(--color-darkgold);
+}
+
+.product-card--featured:hover {
+  color: var(--color-darkgold);
+  outline-color: var(--color-darkgold);
+  box-shadow: 0 0 35px rgba(255, 241, 186, 1);
+}
+
+.product-card__image--featured {
+  outline-color: var(--color-darkgold);
+}
+
+.product-card__image--featured:hover {
+  outline-color: var(--color-darkgold);
+  box-shadow: 0 0 35px rgba(255, 241, 186, 1);
+}
+
+.product-card__button--featured {
+  color: var(--color-gold);
+  background-color: var(--color-tyrian);
+  outline: 3px solid var(--color-darkgold);
+}
+
+.product-card__button--featured:hover {
+  box-shadow: 0 0 35px rgba(255, 241, 186, 1);
+  outline: 3px solid var(--color-darkgold);
+  color:var(--color-darkgold);
+}
+
+/* ===============================
+   8,5. Блок: review-card
+   =============================== */
+
+.review-card {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+  padding: var(--space-md);
+  background-color: var(--color-surface);
+  outline: 3px solid var(--color-white);
+  border-radius: var(--radius-md);
+  transition: transform .2s, box-shadow .2s;
+}
+
+.review-card:hover {
+  color: var(--color-white);
+  outline: 3px solid var(--color-white);
+  box-shadow: 0 0 35px rgba(255, 255, 255, 1);
+}
+
+.review-card__rating {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 32px;
+  color: var(--color-white);
+}
+
+.review-card__author {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 12px;
+  color: var(--color-white);
+  align-self: flex-end;
+}
+
+.review-card__body {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: var(--color-white);
+}
 
 /* ===============================
    9. Блок: catalog
@@ -307,41 +474,6 @@ a:focus-visible {
   border-radius: var(--radius-sm);
   font: inherit;
 }
-
-
-/* ===============================
-   12. Блок: button
-   =============================== */
-
-.button {
-  display: inline-block;
-  padding: var(--space-sm) var(--space-md);
-  color: var(--color-white);
-  background-color: var(--color-primary);
-  text-decoration: none;
-  border: none;
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  outline: 3px solid var(--color-border);
-  transition: transform .2s, box-shadow .2s;
-}
-
-.button:hover {
-  color: var(--color-white);
-  outline: 3px solid var(--color-white);
-  box-shadow: 0 0 35px rgba(255, 255, 255, 1);
-}
-
-.button:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 3px;
-}
-
-.button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
 
 /* ===============================
    13. Блок: info-panel
@@ -509,4 +641,12 @@ a:focus-visible {
 .back-to-top:focus-visible {
   outline: 3px solid var(--color-white);
   outline-offset: 3px;
+}
+
+/* ===============================
+   20. Блок: Декорации для текста:
+   =============================== */
+
+.strike {
+  text-decoration: line-through;
 }
